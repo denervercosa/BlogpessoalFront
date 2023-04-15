@@ -1,0 +1,9 @@
+.home{
+    background-image: url(../../assets/planocsgo.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100%
+}
+
+.button {
+    background-color: rgb(35, 6, 255) !important;
+}
