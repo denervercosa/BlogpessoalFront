@@ -11,10 +11,10 @@ function Home() {
             <Grid className='home'container direction="row" justifyContent="center" alignItems="center" style={{height:'100vh', width:'100%'}}>
                 <Box justifyContent={'center'}>
                     <Box textAlign={'center'}>
-                        <Typography variant="h3" gutterBottom color="textPrimary" justifyContent={'center'} component="h3" style={{ color: "#000000", fontWeight: "bold" }}>Sejam bem vindos(a) Gamers!</Typography>
+                        <Typography variant="h3" gutterBottom color="textPrimary" justifyContent={'center'} component="h3" style={{ color: "#808080", fontWeight: "bold" }}>Seja bem vindo(a) Gamer!</Typography>
                     </Box>
                     <Box>
-                        <Typography variant="h5" gutterBottom color="textPrimary" alignItems={'center'} component="h5" style={{color:"#C0C0C0", fontWeight: "bold" }}>Blog sobre o mundo de CSGO, highlights, dicas, tutoriais e muito mais...</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" alignItems={'center'} component="h5" style={{color:"#C0C0C0", fontWeight: "bold" }}>Blog sobre o mundo de CSGO, highlights, notícias, dicas, tutoriais e muito mais...</Typography>
                     </Box>
                     <Box textAlign={'center'}>
                         <Button variant='outlined' className='button'>ver postagens</Button>

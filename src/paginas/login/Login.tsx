@@ -1,11 +1,10 @@
-import React from 'react'
-import {Grid, Box, Typography, TextField, Button} from '@mui/material'
-import {Link} from 'react-router-dom'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import './Login.css'
+import { Box, Typography, Button, Grid, TextField } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
 import UsuarioLogin from '../../models/UsuarioLogin'
 import { login } from '../../service/Service'
 import useLocalStorage from 'react-use-localstorage'
-
 
 function Login() {
 
@@ -52,39 +51,48 @@ function Login() {
       history('/home')
     }
   }, [token])
-    
-    
-    return(
-       <Grid container direction= "row" justifyContent={'center'} alignItems={'center'} className='fundo'>
-            <Grid alignItems={'center'} xs={6}>
-                <Box paddingX={20}>
-                    <form>
-                        <Typography variant="h3" gutterBottom component="h3" align="center" style={{fontWeight:'bold'}} className='textos1'>Entrar</Typography>
-                        <TextField id={'usuario'} label="usuário" variant="outlined" name="usuario" margin="normal" fullWidth ></TextField>
-                        <TextField id={'senha'} label="senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth ></TextField>
-                        <Box marginTop={2} textAlign={'center'}>
-                            <Link to='/home' className='text-decorator-none'>
-                                <Button type='submit' variant='contained' fullWidth>
-                                    Logar
-                                </Button>
-                            </Link>
-                        </Box>
-                    </form>
-                    <Box display='flex' justifyContent='center' marginTop={2}>
-                        <Box marginRight={1}>
-                            <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
-                        </Box>
-                        <Link to='/cadastrousuario'>
-                            <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se</Typography>
-                            </Link>
-                    </Box>
-                </Box>
-            </Grid>
-            <Grid xs={6} className='imagem'>
 
+  return (
+    <>
+      <Grid container alignItems={'center'}>
+        <Grid item xs={6} justifyContent='center' >
+          <Box display='flex' justifyContent={'center'} >
+            <Grid item xs={6} >
+              <form onSubmit={onSubmit}>
+                <Typography variant='h3' align='center' gutterBottom fontWeight='bold'>Entrar</Typography>
+                <TextField
+                  variant='outlined'
+                  name='usuario'
+                  value={userLogin.usuario}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)}
+                  label='Usuário'
+                  margin='normal'
+                  fullWidth />
+
+                <TextField
+                  type='password'
+                  name='senha'
+                  value={userLogin.senha}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)}
+                  variant='outlined'
+                  label='Senha'
+                  margin='normal'
+                  fullWidth />
+
+                <Box marginY={2}>
+                    <Button type='submit' size='large' variant='contained' fullWidth>Logar</Button>
+                  
+                </Box>
+            </form>
+            <hr />
+            <Typography marginTop={2} align='center' variant="body1">Ainda não tem uma conta? <Link to='/cadastrarUsuario' className='linkLogin'>Cadastre-se aqui</Link></Typography>
             </Grid>
-       </Grid>
-    )
+          </Box>
+        </Grid>
+        <Grid item xs={6} className='imagemLogin'></Grid>
+      </Grid>
+    </>
+  )
 }
 
 export default Login
